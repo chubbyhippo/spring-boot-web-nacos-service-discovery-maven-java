@@ -1,0 +1,13 @@
+services:
+  nacos:
+    image: nacos/nacos-server:latest
+    container_name: nacos-server
+    environment:
+      - MODE=standalone
+      - JVM_XMS=256m              # Set minimum JVM memory
+      - JVM_XMX=512m              # Set maximum JVM memory
+      - JVM_XMN=128m
+    ports:
+      - 8848:8848                 # HTTP port for the console
+      - 9848:9848                 # gRPC listening port
+    restart: always
